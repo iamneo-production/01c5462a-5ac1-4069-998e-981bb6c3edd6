@@ -1,0 +1,17 @@
+#page1 {
+    text-align: center;
+    width: 100%;
+    padding-top: 300px;
+  }
+  #bodypage {
+    margin-top: -40px;
+    margin-bottom: -190px;
+    margin-left: -50px;
+    margin-right: -50px;
+    opacity: 0.8;
+    height: 103vh;
+    background-position: center;
+    background-image: url("washingmachineservice.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
