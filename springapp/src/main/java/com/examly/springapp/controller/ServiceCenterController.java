@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.examly.springapp.model.ServiceCenterModel;
-import com.examly.springapp.services.ServiceCenterService;
+import com.examly.springapp.service.ServiceCenterService;
 @CrossOrigin(origins="http://localhost:3000")
 @RestController
 public class ServiceCenterController {
