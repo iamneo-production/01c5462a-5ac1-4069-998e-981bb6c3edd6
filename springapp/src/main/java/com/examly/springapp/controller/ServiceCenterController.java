@@ -19,7 +19,7 @@ import com.examly.springapp.service.ServiceCenterService;
 @RestController
 public class ServiceCenterController {
     
-    @Autowired
+	@Autowired
 	ServiceCenterService serviceCenterService;
 	
 	//View Service Center
@@ -40,6 +40,10 @@ public class ServiceCenterController {
 		return serviceCenterService.getCenterById(serviceCenterId);
 	}
 	
+	@GetMapping("/updateRatings/{serviceCenterId}&{rating}")
+	public String updateRatings(@PathVariable String serviceCenterId, @PathVariable String rating) {
+		return serviceCenterService.updateRatings(serviceCenterId,rating);
+	}
 	//update
 	@PutMapping("/centerUpdate/{serviceCenterId}")
 	public ResponseEntity<ServiceCenterModel> updateDetail(@PathVariable String serviceCenterId, @RequestBody ServiceCenterModel detail) {
