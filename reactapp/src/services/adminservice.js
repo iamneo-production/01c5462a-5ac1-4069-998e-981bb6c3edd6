@@ -1,10 +1,13 @@
 import axios from "axios";
-axios.interceptors.request.use(function (config ) {
+import { useNavigate } from "react-router-dom";
+axios.interceptors.request.use(function (config) {
+//const navigate = useNavigate();
 const token = localStorage.getItem('id_token');
-console.log(token);
+
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+ 
   return config;
 }, function (error) {
   return Promise.reject(error);
@@ -69,6 +72,9 @@ class AdminService {
       "http://localhost:8082/User/AddProduct" , product
     );
   }
+  addappStatus(id) {
+    return axios.post("http://localhost:8082/product/addStatus" + "/" + id);
+  }
   fetchAppointmentdetailsById(id) {
     return axios.get(
       "http://localhost:8082/viewAppointment" + "/" + id
@@ -94,5 +100,16 @@ class AdminService {
   deleteCompletedBookingById(id) {
     return axios.delete("http://localhost:8082/deleteProduct"+"/" + id);
   }
+  addRatings(appointmentId, rating) {
+    return axios.get("http://localhost:8082/addAppointmentStars" + "/" + appointmentId +"&"+rating);
+  }
+  updateReviewRating(serviceCenterId, rating) {
+    return axios.get("http://localhost:8082/updateRatings" + "/" + serviceCenterId +"&"+rating);
+  }
+  fetchCompletedBookingsListByUserId(id) {
+    return axios.get("http://localhost:8082/findByUserId" + "/" + id);
+  }
+
+  
 }
 export default new AdminService();
