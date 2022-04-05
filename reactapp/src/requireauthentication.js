@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 export const RequireAuthentication = ({ children }) => {
   const auth = useAuth();
 
-  if (!auth.userId && !auth.userName && !auth.userEmailId && !auth.userRole) {
+  if (!localStorage.getItem('user_id')) {
     return <Navigate to="/" />;
 
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link} from "react-router-dom";
-import "../components/Home/Home.css";
+import "./error.css";
 export default function 
 () {
     return (

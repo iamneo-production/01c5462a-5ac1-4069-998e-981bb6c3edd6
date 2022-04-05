@@ -1,13 +1,5 @@
 import axios from "axios";
-axios.interceptors.request.use(function (config ) {
-  const token = localStorage.getItem('id_token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-}, function (error) {
-  return Promise.reject(error);
-});
+
 const USER_API_LINK = "http://localhost:8082/UserAdd";
 
 class LoginService {

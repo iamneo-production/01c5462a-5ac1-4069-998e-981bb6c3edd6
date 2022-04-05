@@ -12,7 +12,8 @@ function Admindashboardaddcenterform() {
     serviceCenterPhone: "",
     serviceCenterAddress: "",
     serviceCentermailId: "",
-    serviceCenterDescription: ""
+    serviceCenterDescription: "",
+    rating:0
   };
   const onSubmit = (values, onSubmitProps) => {
     console.log("form data", values);

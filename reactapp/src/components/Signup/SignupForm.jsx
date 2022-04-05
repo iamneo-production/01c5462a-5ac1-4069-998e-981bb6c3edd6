@@ -47,7 +47,7 @@ function SignupForm() {
           alert("saved");
           onSubmitProps.setSubmitting(false);
           onSubmitProps.resetForm();
-          navigate(path);
+          window.location.replace("/Login");
         });
       }
     });

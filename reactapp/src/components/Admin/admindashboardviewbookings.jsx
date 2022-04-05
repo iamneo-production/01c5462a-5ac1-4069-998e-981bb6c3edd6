@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Table } from "react-bootstrap";
 import AdminService from "../../services/adminservice.js";
 import { useNavigate, Outlet } from "react-router-dom";
-import AdminService from "./adminservice.js";
+
 import ReactPaginate from "react-paginate";
 function Admindashboardviewbookings() {
   const navigate = useNavigate();
@@ -11,6 +11,9 @@ function Admindashboardviewbookings() {
     AdminService.fetchBookingsList().then((res) => {
       setBookingList(res.data);
       console.log(res.data);
+      setTimeout(function() {
+        window.location.reload();
+      }, 20000);
     });
   }, []);
   function complete(bookingid,booking) {

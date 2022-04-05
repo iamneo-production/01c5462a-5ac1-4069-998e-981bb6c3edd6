@@ -10,6 +10,7 @@ function CustomerDashBoard() {
   function handlelogout() {
     auth.logout();
     localStorage.removeItem('id_token');
+    localStorage.removeItem('user_id');
     navigate("/");
   }
   return (

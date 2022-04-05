@@ -4,7 +4,7 @@ import {Outlet} from "react-router-dom";
 import adminservice from "../../services/adminservice";
 import ReactStars from "react-rating-stars-component";
 import { useAuth } from "../../auth.js";
-import ReactStars from "react-rating-stars-component";
+
 import ReactPaginate from "react-paginate";
 function Customerdashboardcompletedbookings() {
   const [showmodal, setShowModal] = useState(false);
@@ -37,13 +37,16 @@ function Customerdashboardcompletedbookings() {
     //adminservice.updateReviewRating(serviceCenterId);
     handleClose();
   };
-  const auth = useAuth();
+  const auth = localStorage.getItem('user_id');
   const [bookingsList, setBookingsList] = useState([]);
   useEffect(() => {
-    console.log(auth.id);
-    adminservice.fetchCompletedBookingsListByUserId(auth.id).then((res) => {
+    console.log(auth);
+    adminservice.fetchCompletedBookingsListByUserId(auth).then((res) => {
       console.log(res.data);
       setBookingsList(res.data);
+      setTimeout(function() {
+        window.location.reload();
+      }, 20000);
     });
   }, []);
   const [pageNumber, setPageNumber] = useState(0);
