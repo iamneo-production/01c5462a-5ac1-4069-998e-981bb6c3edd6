@@ -7,7 +7,9 @@ class AdminService {
    createServiceCenter(servicecenter) {
      return axiosObject.post("http://localhost:8082/addServiceCenter", servicecenter);
    }
- 
+   checkServicecenter(name) {
+    return axiosObject.get("http://localhost:8082/findCenterByName"+"/"+ name);
+   }
    existsBymailId(mail) {
      return axiosObject.get("http://localhost:8080/getByMailId" + "/" + mail);
    }
