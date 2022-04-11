@@ -75,4 +75,10 @@ public class ServiceCenterImpl implements ServiceCenterService{
 		return s;
 	}
 
+	@Override
+	public String checkServicecenter(String serviceCenterName) {
+		// TODO Auto-generated method stub
+		return((serviceCenterRepo.existsByServiceCenterName(serviceCenterName)) ? "true" :"false" );
+	}
+
 }
