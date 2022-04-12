@@ -28,7 +28,7 @@ public class AppoinmentServiceImpl implements AppoinmentServices{
 		String time=detail.getBookingtime();
 		String date=detail.getDateofbooking();
 		String center=detail.getServiceCenterId();
-		if(existsByTime(time,date,center)<1) {
+		if(existsByTime(time,date,center)<3) {
 			
 			return true;
 		}
