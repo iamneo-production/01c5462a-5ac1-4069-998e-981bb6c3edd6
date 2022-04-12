@@ -26,37 +26,3 @@
 #logo{
   color: blue;
 }
-
-#errorbody{
-  position: absolute;
-  top:10%;
-  left:17%;
-  right: 17%;
-  bottom: 20%;
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  color: aliceblue;
-
-  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
-  background-color: rgb(69, 159, 211);
-
-}
-#errormainbody{
-  max-width: 600px;
-  text-align: center;
-}
-#errormainbody h1{
-  font-size: 18vw;
-  line-height: 1em;
-}
-#errormainbody h4{
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  color: #000;
-  max-width: 600px;
-  font-size: 2em;
-}
-#errormainbody p{
-  font-size: 1.2em;
-}

@@ -5,5 +5,7 @@ import com.examly.springapp.model.ServiceCenterModel;
 
 
 public interface ServiceRepo extends JpaRepository<ServiceCenterModel, String>{
+
+	boolean existsByServiceCenterName(String serviceCenterName);
     
 }

@@ -62,11 +62,23 @@ public class ServiceCenterImpl implements ServiceCenterService{
 		ServiceCenterModel centerModel= serviceCenterRepo.findById(serviceCenterId).orElseThrow();
 		float a= Float.parseFloat(centerModel.getRating());
 		float b=Float.parseFloat(rating);
-		float c=(a+b)/2;
+		float c;
+		if(a<1) {
+			c=b;
+		}
+		else {
+			c=(a+b)/2;
+		}
 		String s=Float. toString(c);
 		centerModel.setRating(s);
 		serviceCenterRepo.save(centerModel);
 		return s;
+	}
+
+	@Override
+	public String checkServicecenter(String serviceCenterName) {
+		// TODO Auto-generated method stub
+		return((serviceCenterRepo.existsByServiceCenterName(serviceCenterName)) ? "true" :"false" );
 	}
 
 }

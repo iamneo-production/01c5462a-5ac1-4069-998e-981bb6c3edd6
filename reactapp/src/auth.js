@@ -10,6 +10,7 @@ export const AuthProvider = ({ children }) => {
     setUserName(userName);
     setUserEmailId(userEmailId);
     setUserRole(userRole);
+    localStorage.setItem('user_id', id);
   };
 
   const logout = () => {
@@ -17,6 +18,7 @@ export const AuthProvider = ({ children }) => {
     setUserName(null);
     setUserEmailId(null);
     setUserRole(null);
+    localStorage.removeItem('user_id');
   };
 
   return (

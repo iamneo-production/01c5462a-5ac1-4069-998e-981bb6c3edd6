@@ -12,15 +12,25 @@ function Admindashboardaddcenterform() {
     serviceCenterPhone: "",
     serviceCenterAddress: "",
     serviceCentermailId: "",
-    serviceCenterDescription: ""
+    serviceCenterDescription: "",
+    rating:0
   };
   const onSubmit = (values, onSubmitProps) => {
     console.log("form data", values);
-    AdminService.createServiceCenter(values).then((props) => {
-      alert("Service center added Successfully");
-      onSubmitProps.setSubmitting(false);
-      onSubmitProps.resetForm();
-    });
+    AdminService.checkServicecenter(values.serviceCenterName).then((res) => {
+      if (res) {
+        alert("service center name already present");
+      }
+      else {
+        alert("welcome");
+        AdminService.createServiceCenter(values).then((props) => {
+          alert("Service center added Successfully");
+          onSubmitProps.setSubmitting(false);
+          onSubmitProps.resetForm();
+        });
+      }
+    })
+    
   };
   const validationSchema = Yup.object({
     serviceCenterName: Yup.string()

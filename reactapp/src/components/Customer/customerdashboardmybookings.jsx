@@ -7,7 +7,7 @@ import adminservice from "../../services/adminservice.js";
 import { useAuth } from "../../auth.js";
 import ReactPaginate from "react-paginate";
 function Customerdashboardmybookings() {
-  const auth = useAuth();
+  const auth = localStorage.getItem('user_id');
   const navigate = useNavigate();
   const [bookingsList, setBookingsList] = useState([]);
   
@@ -15,11 +15,15 @@ function Customerdashboardmybookings() {
   
 
   useEffect(() => {
-    console.log(auth.id);
-    adminservice.fetchBookingsListByUserId(auth.id).then((res) => {
+    console.log(auth);
+    adminservice.fetchBookingsListByUserId(auth).then((res) => {
       
       setBookingsList(res.data);
       console.log(res.data);
+      setTimeout(function() {
+        window.location.reload();
+      }, 20000);
+        
       
       
     });

@@ -17,6 +17,9 @@ function Admindashboardcenterprofile(props) {
       .then((res) => {
         console.log(res.data);
         setserviceCenterList(res.data);
+        setTimeout(function() {
+          window.location.reload();
+        }, 10000);
       })
       .catch((err) => console.log(err));
   }, []);

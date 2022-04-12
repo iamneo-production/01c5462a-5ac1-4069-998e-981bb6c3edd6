@@ -11,6 +11,9 @@ function Admindashboardviewusers() {
   useEffect(() => {
     AdminService.fetchUsersList().then((res) => {
       setUserList(res.data);
+      setTimeout(function() {
+        window.location.reload();
+      }, 10000);
     });
   }, []);
   function remove(id) {
