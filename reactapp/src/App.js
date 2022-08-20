@@ -1,4 +1,4 @@
-import "./styles.css";
+import "./styles.css"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./components/Login/Login.jsx";
