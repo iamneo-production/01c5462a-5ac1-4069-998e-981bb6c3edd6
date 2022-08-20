@@ -11,7 +11,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import adminservice from "../../services/adminservice";
 import imageSrc from '../../servicecenterimage.jpg';
 //import "react-datepicker/dist/react-datepicker.css";
-import { useAuth } from "../../auth.js";
+
 import Customerdashboardappointmentformheader from "./customerdashboardappointmentformheader.jsx";
 export default function Customerdashboardbookappointmentform() {
   const showModal = true;
@@ -19,12 +19,15 @@ export default function Customerdashboardbookappointmentform() {
   const { id } = useParams();
   const navigate = useNavigate();
   //const slots = useState([]);
-  const auth = useAuth();
+  const auth = localStorage.getItem('user_id');
   const [serviceCenter, setServiceCenter] = useState({});
 
   useEffect(() => {
     adminservice.fetchServiceCenterById(id).then((res) => {
       setServiceCenter(res.data);
+      setTimeout(function() {
+        window.location.reload();
+      }, 30000);
     });
   });
   const startdate = () => {
@@ -78,7 +81,7 @@ export default function Customerdashboardbookappointmentform() {
       dateOfPurchase: values.productdateOfPurchase,
       contactNumber: values.productcontactNo,
       problemDescription: values.productProblem,
-      userId: auth.id,
+      userId: auth,
       appoinmentModel: [
         {
           dateofbooking: values.productappointmentdate,
@@ -89,7 +92,7 @@ export default function Customerdashboardbookappointmentform() {
     let appointmentdetail = {
           dateofbooking: values.productappointmentdate,
           bookingtime: values.productavailableSlots,
-          userId: auth.id,
+          userId: auth,
           serviceCenterId:id
     }
     console.log(appointmentdetail);

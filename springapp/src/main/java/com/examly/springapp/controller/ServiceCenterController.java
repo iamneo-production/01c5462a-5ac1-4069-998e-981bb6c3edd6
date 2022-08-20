@@ -40,6 +40,11 @@ public class ServiceCenterController {
 		return serviceCenterService.getCenterById(serviceCenterId);
 	}
 	
+	@GetMapping("/findCenterByName/{serviceCenterName}")
+	public String checkServicecenter(@PathVariable String serviceCenterName) {
+		return serviceCenterService.checkServicecenter(serviceCenterName);
+	}
+	
 	@GetMapping("/updateRatings/{serviceCenterId}&{rating}")
 	public String updateRatings(@PathVariable String serviceCenterId, @PathVariable String rating) {
 		return serviceCenterService.updateRatings(serviceCenterId,rating);

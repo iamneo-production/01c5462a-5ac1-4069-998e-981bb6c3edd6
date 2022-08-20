@@ -19,4 +19,6 @@ public ServiceCenterModel getCenterById(@PathVariable String serviceCenterId);
 public String updateRatings(String serviceCenterId, String rating);
 
 public ServiceCenterModel addCenter(ServiceCenterModel detail);
+
+public String checkServicecenter(String serviceCenterName);
 }
